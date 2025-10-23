@@ -1,0 +1,126 @@
+c) Provide captcha (OCR images) as base64 string from different site --> confirm their text
+Tried with 
+1)  "model": "meta-llama/llama-4-scout-17b-16e-instruct", - model gives only  image text
+Request : 
+{
+  "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Extract the text from this image and let the upper or lower cases stay as it is. Return only those characters"
+        },
+        {
+          "type": "image_url",
+          "image_url": { 
+            "url": "https://contents.irctc.co.in/en/image/usrRegNget_4.jpeg" 
+          },
+         "temperature": 0.1
+        }
+      ]
+    }
+   
+  ],
+  "max_tokens": 500
+}
+
+Response :
+
+{
+    "id": "chatcmpl-bebd2b29-8359-4303-93b3-d27b9c1556b5",
+    "object": "chat.completion",
+    "created": 1761193822,
+    "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Thank you.\nYou have been successfully registered.\nYour user registration confirmation mail has been sent to your registered mail id\nPlease click here to login and activate your account"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.115751362,
+        "prompt_tokens": 2356,
+        "prompt_time": 0.067190568,
+        "completion_tokens": 33,
+        "completion_time": 0.086462839,
+        "total_tokens": 2389,
+        "total_time": 0.153653407
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_37da608fc1",
+    "x_groq": {
+        "id": "req_01k87na1q8ez4ttm6fw9fvxysn"
+    },
+    "service_tier": "on_demand"
+}
+
+2)"model": "meta-llama/llama-4-maverick-17b-128e-instruct", - model gives complete image data
+Request : 
+
+{
+  "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Extract the text from this image and let the upper or lower cases stay as it is. Return only those characters"
+        },
+        {
+          "type": "image_url",
+          "image_url": { 
+            "url": "https://contents.irctc.co.in/en/image/usrRegNget_4.jpeg" 
+          },
+         "temperature": 0.1
+        }
+      ]
+    }
+   
+  ],
+  "max_tokens": 500
+}
+
+Response :
+
+{
+    "id": "chatcmpl-1933f998-6044-4f9a-8f08-04448639bb59",
+    "object": "chat.completion",
+    "created": 1761191312,
+    "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Indian Railway Catering and Tourism Corporation Limited\nA Government of India Enterprise\nCentre For Railway Information Systems\n(An organization of the Ministry of Railways,Govt. of India)\nCRIS\nNEW\nFood-on-Track\nNEW\nE-Bedroll\nCab / Bus\nNEW\nIRCTC OYO Hotels\nE-Wheelschair\nFlight Tickets\nAccommodations\nMobile Apps\nIRCTC Tourism\nIRCTC PrePaid Card\nNEW\nShop on Amazon\nTrain/Coach Booking (FTR)\nNational Voter's Services Portal\nMahila E-Haat\nNEW\nCounter Ticket Cancellation\nThank you.\nYou have been successfully registered.\nYour user registration confirmation mail has been sent to your registered mail id\nPlease click here to login and activate your account\nCopyright  2016 - www.irctco.in. All Rights Reserved\nDesigned and Hosted by CRIS\nCompatible Browser"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.123487261,
+        "prompt_tokens": 2356,
+        "prompt_time": 0.050490948,
+        "completion_tokens": 185,
+        "completion_time": 0.623781478,
+        "total_tokens": 2541,
+        "total_time": 0.674272426
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_d2c1f7e199",
+    "x_groq": {
+        "id": "req_01k87jxdtneqprjpwemdf253ns"
+    },
+    "service_tier": "on_demand"
+}
+
+
