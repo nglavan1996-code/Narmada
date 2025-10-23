@@ -1,0 +1,21 @@
+b) Confirmation of the audio (recorded content of your voice) converted into correct text
+
+( sample audio available in https://getsamplefiles.com/sample-audio-files/opus#google_vignette) 
+
+{
+    "error": {
+        "message": "The model `whisper-large-v3-turbo` does not support `translate`",
+        "type": "invalid_request_error"
+    }
+}
+
+Using this modal working good - whisper-large-v3
+{
+    "text": " Thank you. Thanks for watching!",
+    "x_groq": {
+        "id": "req_01k87n5mcze1c8tbmwhq3ms8mh"
+    }
+}
+
+[whisper-large-v3-turbo - model not supported translate
+whisper-large-v3 - supported translate ]
