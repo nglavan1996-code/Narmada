@@ -1,0 +1,54 @@
+Integrate the prompt to your API (using postman) and confirm the response (json)
+
+Objective: You can integrate prompt + LLM API
+Request :
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "**User Story 1: Vehicle Search & Filtering**\n\n**As a** car shopper  \n**I want to** search and filter the vehicle inventory  \n**So that** I can easily find cars that match my specific preferences and requirements\n\n**Acceptance Criteria:**\n- Can filter by make, model, year, price range, and mileage\n- Can sort results by price (low to high, high to low), newest first, and mileage\n- View clear vehicle cards with images, key specs, and pricing\n- See the total number of matching vehicles in search results\n- Pagination or infinite scroll for browsing multiple results"
+    },
+     {
+      "role": "system",
+      "content": "As a AI assistant ,  convert into selenium code using java"
+    }
+  ],
+  "model": "llama-3.3-70b-versatile",
+  "max_tokens" : 100
+  }
+
+Response :
+
+{
+    "id": "chatcmpl-e7d3ae5c-30fa-46da-bcc4-93513e891b78",
+    "object": "chat.completion",
+    "created": 1761193969,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "### Vehicle Search and Filtering using Selenium with Java\n\nBelow is an example implementation using Selenium WebDriver with Java to test the vehicle search and filtering functionality.\n\n```java\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.chrome.ChromeDriver;\nimport org.openqa.selenium.support.ui.ExpectedConditions;\nimport org.openqa.selenium.support.ui.Select;\nimport org.openqa.selenium.support.ui.WebDriverWait;\nimport org.testng.annotations.AfterTest;\nimport org.testng.annotations.BeforeTest;\nimport"
+            },
+            "logprobs": null,
+            "finish_reason": "length"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.258947679,
+        "prompt_tokens": 172,
+        "prompt_time": 0.011735141,
+        "completion_tokens": 100,
+        "completion_time": 0.208605256,
+        "total_tokens": 272,
+        "total_time": 0.220340397
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4cfc2deea6",
+    "x_groq": {
+        "id": "req_01k87negwje68ans1s6d69bb40"
+    },
+    "service_tier": "on_demand"
+}
